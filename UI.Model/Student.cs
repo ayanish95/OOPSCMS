@@ -31,6 +31,30 @@ namespace UI.Model
 
         public Student()
         {
+            /*
+             *                  Constructor
+             *         
+             *         
+             *                  Types of Constructor
+             *      1. Default Constructor
+             *       => Implicit Default Constructor: If no constructor is explicitly defined in a class, the compiler automatically provides a default constructor with no parameters.
+             *       => Explicit Default Constructor: A constructor explicitly defined by the programmer without parameters.
+             *
+             *      2. Parameterized Constructor 
+             *       => A constructor that takes one or more parameters, allowing the programmer to pass values to initialize the object at the time of creation.
+             *      
+             *      3. Static Constructor
+             *       => A constructor used to initialize static fields of a class or to perform actions that need to be performed only once. 
+             *       => It is called automatically before any static members are accessed or any instance is created.
+             *      
+             *      4. Copy Constructor
+             *       => A constructor that creates a new object as a copy of an existing object.
+             *       => It's commonly used in languages like C++, but not explicitly supported in C#; 
+             *      
+             *      5. Private Constructor
+             *       => A constructor that cannot be accessed outside the class, typically used in singleton patterns to restrict instantiation.
+             */
+
             // All Initializations goes here.
 
             //      Assign the readonly field.

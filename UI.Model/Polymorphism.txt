@@ -1,0 +1,159 @@
+﻿			Ploymorphism
+
+=> In object-oriented programming (OOP), polymorphism is the ability of a function, object, or method to take on multiple forms. 
+   One of the key features that enable polymorphism in C# (and many other OOP languages) is the use of the virtual keyword. Here’s an overview of how virtual works in the context of polymorphism:
+
+	Virtual Methods
+=> A virtual method in a base class allows derived classes to override it. This means that the derived class can provide a specific implementation of the method that differs from the one in the base class. 
+   The virtual keyword is used in the base class, and the override keyword is used in the derived class.
+
+	How It Works
+1. Base Class Definition: A method in the base class is marked as virtual.
+2. Derived Class Override: The derived class overrides the virtual method using the override keyword.
+3. Polymorphic Behavior: When a method is called on a base class reference that points to a derived class object, the overridden method in the derived class is executed.
+
+
+Example :-
+
+using System;
+
+class Animal
+{
+    // Virtual method in base class
+    public virtual void MakeSound()
+    {
+        Console.WriteLine("The animal makes a sound");
+    }
+}
+
+class Dog : Animal
+{
+    // Override the virtual method
+    public override void MakeSound()
+    {
+        Console.WriteLine("The dog barks");
+    }
+}
+
+class Cat : Animal
+{
+    // Override the virtual method
+    public override void MakeSound()
+    {
+        Console.WriteLine("The cat meows");
+    }
+}
+
+
+        Using Polymorphism
+
+class Program
+{
+    static void Main()
+    {
+        Animal myAnimal = new Animal();
+        Animal myDog = new Dog();
+        Animal myCat = new Cat();
+
+        myAnimal.MakeSound(); // Output: The animal makes a sound
+        myDog.MakeSound();    // Output: The dog barks
+        myCat.MakeSound();    // Output: The cat meows
+    }
+}
+
+            Method hiding
+
+ => Method hiding in C# is a technique where a method in a derived class hides a method in its base class with the same name and signature. 
+    This is achieved using the new keyword. It is different from method overriding, where a derived class provides a new implementation for a virtual method defined in a base class using the override keyword.
+
+        Method Hiding vs. Method Overriding
+ => Method Overriding: Uses the override keyword and requires the base method to be marked as virtual, abstract, or override.
+ => Method Hiding: Uses the new keyword and does not require the base method to be virtual. It completely hides the base method.
+
+Example of Method Hiding
+
+            Base Class
+using System;
+
+class Animal
+{
+    public void MakeSound()
+    {
+        Console.WriteLine("The animal makes a sound");
+    }
+}
+
+        Derived Class with Method Hiding
+class Dog : Animal
+{
+    // Method hiding using the new keyword
+    public new void MakeSound()
+    {
+        Console.WriteLine("The dog barks");
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        Animal myAnimal = new Animal();
+        Dog myDog = new Dog();
+        Animal animalRefToDog = new Dog();
+
+        myAnimal.MakeSound();         // Output: The animal makes a sound   // Output: Display method in BaseClass
+        myDog.MakeSound();            // Output: The dog barks              // Output: Display method in DerivedClass
+        animalRefToDog.MakeSound();   // Output: The animal makes a sound   // Output: Display method in BaseClass
+    }
+}
+
+
+                Method overriding 
+ => Method overriding is a feature in object-oriented programming that allows a derived class to provide a specific implementation of a method that is already defined in its base class. 
+    This feature is crucial for achieving polymorphism, where the method to be executed is determined at runtime based on the object type.
+
+
+        Key Points of Method Overriding
+1. Inheritance: Method overriding requires a base class and a derived class.
+2. Virtual Method: The method in the base class must be marked with the virtual, abstract, or override keyword.
+3. Override Keyword: The method in the derived class must be marked with the override keyword.
+
+Example of Method Overriding
+
+    Base Class
+using System;
+
+class Animal
+{
+    // Virtual method in the base class
+    public virtual void MakeSound()
+    {
+        Console.WriteLine("The animal makes a sound");
+    }
+}
+
+    Derived Class
+class Dog : Animal
+{
+    // Overriding the base class method
+    public override void MakeSound()
+    {
+        Console.WriteLine("The dog barks");
+    }
+}
+
+
+        Usage
+class Program
+{
+    static void Main()
+    {
+        Animal myAnimal = new Animal();
+        Dog myDog = new Dog();
+        Animal animalRefToDog = new Dog();
+
+        myAnimal.MakeSound();         // Output: The animal makes a sound
+        myDog.MakeSound();            // Output: The dog barks
+        animalRefToDog.MakeSound();   // Output: The dog barks
+    }
+}

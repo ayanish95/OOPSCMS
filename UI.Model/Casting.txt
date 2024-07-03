@@ -1,0 +1,38 @@
+﻿
+Casting in programming refers to the conversion of a variable from one data type to another. There are two types of casting: implicit and explicit. Here’s an explanation of both, along with examples.
+
+		1.	Implicit Casting (Automatic Conversion)
+ => Implicit casting is done automatically by the compiler when it is safe to do so, meaning there is no risk of data loss. This usually happens when converting a smaller type to a larger type (e.g., int to long, float to double).
+	Example :-
+
+	int myInt = 9;
+	double myDouble = myInt;  // Implicit casting: int to double
+
+	Console.WriteLine(myInt);      // Output: 9
+	Console.WriteLine(myDouble);   // Output: 9.0
+
+
+		2.	Explicit Casting (Manual Conversion)
+ => Explicit casting is required when converting from a larger type to a smaller type or converting between incompatible types. This is done manually by the programmer and may lead to data loss if not handled properly.
+	Example :-
+
+	double myDouble = 9.78;
+	int myInt = (int)myDouble;  // Explicit casting: double to int
+
+	Console.WriteLine(myDouble);   // Output: 9.78
+	Console.WriteLine(myInt);      // Output: 9
+
+
+
+			Implicit vs. Explicit Casting
+	Implicit Casting:
+	=> Performed automatically by the compiler.
+	=> Safe conversions without data loss.
+	=> Typically from smaller to larger data types.
+	=> No special syntax required.
+
+	Explicit Casting:
+	=> Performed manually by the programmer.
+	=> May involve data loss or require conversion logic.
+	=> Typically from larger to smaller data types or between incompatible types.
+	=> Requires cast operator (e.g., (int)).
